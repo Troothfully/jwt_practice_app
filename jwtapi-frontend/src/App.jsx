@@ -126,11 +126,14 @@ function App() {
                     }
                 />
 
-                <Route
+               <Route
                     path="/admin-dashboard"
                     element={
                         <ProtectedRoute token={token}>
-                            <AdminDashboard username={username} />
+                            <AdminDashboard
+                                token={token}
+                                username={username}
+                            />
                         </ProtectedRoute>
                     }
                 />

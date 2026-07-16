@@ -39,6 +39,47 @@ export async function register(username, password) {
     return handleResponse(response);
 }
 
+export async function getAllUsers(token) {
+    const response = await fetch(
+        `${API_BASE_URL}/admin/users`,
+        {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }
+    );
+
+    return handleResponse(response);
+}
+
+export async function promoteUserToAdmin(token, userId) {
+    const response = await fetch(
+        `${API_BASE_URL}/admin/users/${userId}/promote`,
+        {
+            method: "PATCH",
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }
+    );
+
+    return handleResponse(response);
+}
+
+export async function deleteUser(token, userId) {
+    const response = await fetch(
+        `${API_BASE_URL}/admin/users/${userId}`,
+        {
+            method: "DELETE",
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }
+    );
+
+    return handleResponse(response);
+}
+
 export async function getAdminMessage(token) {
     const response = await fetch(`${API_BASE_URL}/admin`, {
         headers: {

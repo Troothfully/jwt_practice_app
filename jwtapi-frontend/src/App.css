@@ -217,3 +217,59 @@ button:disabled {
 .active-tab:hover {
     background: #1d4ed8;
 }
+
+.admin-dashboard {
+    max-width: 950px;
+}
+
+.users-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.users-table th,
+.users-table td {
+    border-bottom: 1px solid #e2e8f0;
+    padding: 14px 10px;
+    text-align: left;
+}
+
+.users-table th {
+    background: #f8fafc;
+}
+
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.danger-button {
+    background: #dc2626;
+}
+
+.danger-button:hover {
+    background: #b91c1c;
+}
+
+.you-label {
+    display: inline-block;
+    margin-left: 8px;
+    border-radius: 999px;
+    padding: 2px 8px;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
