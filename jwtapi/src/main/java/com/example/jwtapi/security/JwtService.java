@@ -10,6 +10,7 @@ import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.function.Function;
+import org.springframework.beans.factory.annotation.Value;
 
 @Service
 public class JwtService {
@@ -18,8 +19,8 @@ public class JwtService {
      * This secret must be at least 32 bytes for HS256.
      * Do not publish a real production secret in source control.
      */
-    private static final String SECRET_KEY =
-            "this-is-a-demo-secret-key-that-is-at-least-32-bytes-long";
+    @Value("${jwt.secret}")
+    private String secretKey;
 
     /*
      * Token lasts for 30 minutes.
@@ -28,7 +29,7 @@ public class JwtService {
 
     private SecretKey getSigningKey() {
         return Keys.hmacShaKeyFor(
-                SECRET_KEY.getBytes(StandardCharsets.UTF_8)
+                secretKey.getBytes(StandardCharsets.UTF_8)
         );
     }
 
